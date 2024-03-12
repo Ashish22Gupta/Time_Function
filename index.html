@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #d1{
+            height: 50px;
+            width: 150px;
+            background-color: red;
+            color:aqua;
+            border-radius: 10px;
+            font-style:italic;
+        }
+        #d2{
+            height: 50px;
+            width: 150px;
+            background-color: blue;
+            color: aqua;
+            border-radius: 10px;
+            font-style:italic;
+        }
+        #d3{
+            height: 50px;
+            width: 150px;
+            background-color: green;
+            color: aqua;
+            border-radius: 10px;
+            font-style:italic;
+        }
+        #cen{
+            margin-top: 45vh;
+        }
+        body{
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <center id="cen">
+        <button id="d1" onclick="myfun1()"><b>ANALOG CLOCK</b></button>
+        <button id="d2" onclick="myfun2()"><b>DIGITAL CLOCK</b></button>
+        <button id="d3" onclick="myfun3()"><b>TIMER</b></button>
+    </center>
+    <script>
+        function myfun1(){
+            window.location.replace("Analog Clock/Analog_clock.html");
+        }
+        function myfun2(){
+            window.location.replace("digital.html");
+        }
+        function myfun3(){
+            window.location.replace("Stop Watch/stopWatch.html");
+        }
+    </script>
+</body>
+</html>
