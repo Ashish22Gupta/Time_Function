@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch with Video Background</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: black;
+        }
+        video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        #container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        #timer {
+            font-size: 10em;
+            color: purple;
+            margin-bottom: 20vh;
+        }
+        button {
+            font-size: 2em;
+            color: white;
+            height: 10vh;
+            width: 25vh;
+            border-radius: 5vh;
+            margin-top: 3vh;
+            font-weight: bolder;
+            border-color: white;
+        }
+        #green {
+            background-color: green;
+            margin-right: 10vh;
+        }
+        #red {
+            background-color: red;
+        }
+        #blue {
+            background-color: blue;
+            margin-left: 10vh;
+        }
+        #back{
+            color: black;
+        }
+        @media only screen and (max-width: 1140px) {
+            button {
+                height: 10vh;
+                width: 25vh;
+                font-size: 2em;
+            }
+            #timer {
+                font-size: 10em;
+                margin-bottom: 25vh;
+                color: purple;
+            }
+            #green, #red, #blue {
+                margin-left: 0vh;
+                margin-right: 0vh;
+            }
+        }
+        @media only screen and (max-width: 986px) {
+            button{
+                height: 8vh;
+                width: 20vh;
+                font-size: 1.5em;
+                margin-top: 8vh;
+            }
+            #timer {
+            font-size: 10em;
+            margin-bottom: 25vh;
+            color: purple;
+            }
+            #green,#red,#blue{
+                margin-left: 0vh;
+                margin-right: 0vh;
+            }
+        }
+        @media only screen and (max-width: 850px) {
+            button{
+                height: 8vh;
+                width: 20vh;
+                font-size: 1.5em;
+                margin-top: 8vh;
+            }
+            #timer {
+            font-size: 9em;
+            margin-bottom: 25vh;
+            color: purple;
+            }
+            #green,#red,#blue{
+                margin-left: 0vh;
+                margin-right: 0vh;
+            }
+        }
+        @media only screen and (max-width: 792px) {
+            button{
+                height: 6vh;
+                width: 15vh;
+                font-size: 1.2em;
+                margin-top: 2vh;
+            }
+            #timer {
+            font-size: 7em;
+            margin-bottom: 25vh;
+            color: purple;
+            }
+            #green,#red,#blue{
+                margin-left: 0vh;
+                margin-right: 0vh;
+            }
+        }
+        @media only screen and (max-width: 598px){
+            button{
+            height: 5vh;
+            width: 11vh;
+            font-size: 1em;
+            margin-top: 0vh;
+            }
+            #timer {
+            font-size: 5em;
+            margin-bottom: 22vh;
+            color: purple;
+            }
+            #green,#red,#blue{
+                margin-left: 0vh;
+                margin-right: 0vh;
+            }
+        }
+        @media only screen and (max-width: 442px){
+            button{
+            height: 5vh;
+            width: 10vh;
+            font-size: 0.9em;
+            margin-top: 0vh;
+            }
+            #timer {
+            font-size: 4em;
+            margin-bottom: 20vh;
+            color: purple;
+            }
+            #green,#red,#blue{
+                margin-left: 0vh;
+                margin-right: 0vh;
+            }
+        }
+        @media only screen and (max-width: 404px){
+            button{
+            height: 4.5vh;
+            width: 9vh;
+            font-size: 0.8em;
+            margin-top: 0vh;
+            }
+            #timer {
+            font-size: 4em;
+            margin-bottom: 20vh;
+            color: purple;
+            }
+            #green,#red,#blue{
+                margin-left: 0vh;
+                margin-right: 0vh;
+            }
+        }
+        @media only screen and (max-width: 365px){
+            button{
+            height: 4.5vh;
+            width: 8vh;
+            font-size: 0.7em;
+            margin-top: 0vh;
+            }
+            #timer {
+            font-size: 3em;
+            margin-bottom: 17vh;
+            color: purple;
+            }
+            #green,#red,#blue{
+                margin-left: 0vh;
+                margin-right: 0vh;
+            }
+        }
+        @media only screen and (max-width: 326px){
+            button{
+            height: 4vh;
+            width: 7.5vh;
+            font-size: 0.65em;
+            margin-top: 0vh;
+            }
+            #timer {
+            font-size: 3em;
+            margin-bottom: 17vh;
+            color: purple;
+            }
+            #green,#red,#blue{
+                margin-left: 0vh;
+                margin-right: 0vh;
+            }
+        }
+        @media only screen and (max-width: 307px){
+            button{
+            height: 4vh;
+            width: 6.5vh;
+            font-size: 0.55em;
+            margin-top: 0vh;
+            }
+            #timer {
+            font-size: 3em;
+            margin-bottom: 17vh;
+            color: purple;
+            }
+            #green,#red,#blue{
+                margin-left: 0vh;
+                margin-right: 0vh;
+            }
+        }
+        @media only screen and (max-width: 267px){
+            button{
+            height: 3.5vh;
+            width: fit-content;
+            font-size: 0.5em;
+            margin-top: 0vh;
+            }
+            #timer {
+            font-size: 2em;
+            margin-bottom: 17vh;
+            color: purple;
+            }
+            #green,#red,#blue{
+                margin-left: 0vh;
+                margin-right: 0vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <video src="timer.mp4" autoplay loop muted></video>
+    <div id="container">
+        <div id="timer">00:00:00.000</div>
+        <button onclick="startTimer()" id="green">START</button>
+        <button onclick="stopTimer()" id="red">STOP</button>
+        <button onclick="resetTimer()" id="blue">RESET</button>
+        <br>
+        <button onclick="back()" id="back">BACK</button>
+    </div>
+    <script>
+        let timer;
+        let hours = 0;
+        let minutes = 0;
+        let seconds = 0;
+        let milliseconds = 0;
+        let running = false;
+
+        function startTimer() {
+            if (!running) {
+                running = true;
+                timer = setInterval(updateTimer, 10); // Update every 10 milliseconds
+            }
+        }
+
+        function stopTimer() {
+            if (running) {
+                running = false;
+                clearInterval(timer);
+            }
+        }
+
+        function resetTimer() {
+            stopTimer();
+            hours = 0;
+            minutes = 0;
+            seconds = 0;
+            milliseconds = 0;
+            document.getElementById('timer').innerText = '00:00:00.000';
+        }
+
+        function updateTimer() {
+            milliseconds = milliseconds + 10;
+            if (milliseconds === 1000) {
+                milliseconds = 0;
+                seconds++;
+                if (seconds === 60) {
+                    seconds = 0;
+                    minutes++;
+                    if (minutes === 60) {
+                        minutes = 0;
+                        hours++;
+                    }
+                }
+            }
+            document.getElementById('timer').innerText = 
+                (hours < 10 ? '0' + hours : hours) + ':' +
+                (minutes < 10 ? '0' + minutes : minutes) + ':' +
+                (seconds < 10 ? '0' + seconds : seconds) + '.' +
+                (milliseconds < 10 ? '00' + milliseconds : milliseconds < 100 ? '0' + milliseconds : milliseconds);
+        }
+        function back(){
+        window.location.replace("../index.html");
+        }
+    </script>
+</body>
+</html>
